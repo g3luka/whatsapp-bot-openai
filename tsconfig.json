@@ -1,0 +1,27 @@
+{
+  "version": "2.0.2",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build",
+    "lib": ["es5", "es2015.promise", "dom", "es2020"],
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "Node",
+    // "strict": true,
+    "esModuleInterop": true,
+    // "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "sourceMap": true,
+    "typeRoots": ["node_modules/@types"],
+  },
+  "files": ["src/index.ts"],
+  "exclude": ["node_modules"],
+  // "files.exclude": {
+  //   "**/*.js": { "when": "$(basename).ts" },
+  //   "**/**.js": { "when": "$(basename).tsx" }
+  // }
+}

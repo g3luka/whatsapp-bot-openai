@@ -1,0 +1,15 @@
+{
+  "extends": ["prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts","*.tsx"],
+      "rules": {
+        "@typescript-eslint/naming-convention": "off"
+      }
+    }
+  ]
+}
