@@ -4,6 +4,9 @@ yarn.lock
 
 /build
 /dist
+/files/*
 .env
 
 /.wwebjs_*
+
+!.gitkeep

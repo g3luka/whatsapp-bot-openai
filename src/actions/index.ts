@@ -4,9 +4,10 @@ import piada from './piada'
 import pergunta from './pergunta'
 import traduzir from './traduzir'
 import imagem from './imagem'
+import textoAudio from './texto-audio'
 import { Client, Message } from 'whatsapp-web.js'
 
-export { ping, help, piada, pergunta, traduzir, imagem }
+export { ping, help, piada, pergunta, traduzir, imagem, textoAudio }
 
 export default async function actions(message: Message, client: Client) {
   if (!shouldInterceptMessage(message)) return
@@ -20,6 +21,7 @@ export default async function actions(message: Message, client: Client) {
     pergunta(message, client),
     traduzir(message, client),
     imagem(message, client),
+    textoAudio(message, client),
   ])
 }
 

@@ -4,19 +4,21 @@ export default async function help(message: Message, client: Client, command: st
   if (message.body !== command) return
   const content = `Você pode usar os comandos abaixo:
 
+    - *!ping* -> Retorna "pong"
+    - *!piada* -> A AI conta uma piada aleatória
     - *!pergunta* -> Responde perguntas em geral
     - *!traduzir* -> Traduz um texto de PT-BR para EN
     - *!imagem* -> Gera uma imagem usando DALE-E-2
-    - *!piada* -> A AI conta uma piada aleatória
-    - *!ping* -> Retorna "pong"
+    - *!fale* -> Converte um texto para áudio
 
     COMO USAR: (Sem as [] e tem que começar com !comando)
 
+    *!ping*
+    *!piada*
     *!pergunta* [uma dúvida qualquer de conhecimentos gerais]
     *!traduzir* [texto em português]
     *!imagem* [uma descrição de para uma imagem]
-    *!piada*
-    *!ping*
+    *!fale* [texto que será convertido para áudio]
 
     EXEMPLO:
 
