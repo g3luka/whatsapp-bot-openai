@@ -5,9 +5,10 @@ import pergunta from './pergunta'
 import traduzir from './traduzir'
 import imagem from './imagem'
 import textoAudio from './texto-audio'
+import audioTexto from './audio-texto'
 import { Client, Message } from 'whatsapp-web.js'
 
-export { ping, help, piada, pergunta, traduzir, imagem, textoAudio }
+export { ping, help, piada, pergunta, traduzir, imagem, textoAudio, audioTexto }
 
 export default async function actions(message: Message, client: Client) {
   if (!shouldInterceptMessage(message)) return
@@ -22,11 +23,12 @@ export default async function actions(message: Message, client: Client) {
     traduzir(message, client),
     imagem(message, client),
     textoAudio(message, client),
+    audioTexto(message, client),
   ])
 }
 
 function shouldInterceptMessage(message: Message): boolean {
-  return message.body.startsWith('!')
+  return message.body.startsWith('!') || message.hasMedia
 }
 
 async function logMessage(message: Message) {

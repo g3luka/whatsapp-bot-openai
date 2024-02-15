@@ -15,7 +15,7 @@ export default async function textToAudio(
     voice,
     input: prompt,
   })
-  console.log('AI: Pergunta', { voice, model, prompt })
+  console.log('AI: Text-to-Audio', { voice, model, prompt })
 
   const buffer = Buffer.from(await audio.arrayBuffer())
   await fs.promises.writeFile(speechFile, buffer)
