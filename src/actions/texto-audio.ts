@@ -10,6 +10,11 @@ export default async function textoAudio(
   if (!message.body.startsWith(command)) return
   await waiting(message.from, client)
   const prompt = message.body.replace(command, '').trim()
-  const audioFile = await textToAudio(prompt)
-  await message.reply(MessageMedia.fromFilePath(audioFile))
+  try {
+    const audioFile = await textToAudio(prompt)
+    await message.reply(MessageMedia.fromFilePath(audioFile))
+  } catch (error: any) {
+    console.error(error)
+    message.reply(`AI: Ops! Não foi possível resolver sua solicitação.\n\n${error.message}`)
+  }
 }
