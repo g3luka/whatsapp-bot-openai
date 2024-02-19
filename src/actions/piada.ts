@@ -8,12 +8,7 @@ export default async function pergunta(
   command: string = '!piada'
 ) {
   if (message.body !== command) return
-  await waiting(message.from, client, 'Ok, deixe-me pensar...')
-  try {
-    const result = await joke()
-    await message.reply(result)
-  } catch (error: any) {
-    console.error(error)
-    message.reply(`AI: Ops! Não foi possível resolver sua solicitação.\n\n${error.message}`)
-  }
+  await waiting(message, client, 'Ok, deixe-me pensar...')
+  const result = await joke()
+  await message.reply(result)
 }

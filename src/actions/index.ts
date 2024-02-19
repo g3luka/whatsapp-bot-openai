@@ -15,16 +15,21 @@ export default async function actions(message: Message, client: Client) {
 
   await logMessage(message)
 
-  return await Promise.all([
-    ping(message, client),
-    help(message, client),
-    piada(message, client),
-    pergunta(message, client),
-    traduzir(message, client),
-    imagem(message, client),
-    textoAudio(message, client),
-    audioTexto(message, client),
-  ])
+  try {
+    return await Promise.all([
+      ping(message, client),
+      help(message, client),
+      piada(message, client),
+      pergunta(message, client),
+      traduzir(message, client),
+      imagem(message, client),
+      textoAudio(message, client),
+      audioTexto(message, client),
+    ])
+  } catch (error: any) {
+    console.error(error)
+    message.reply(`AI: Ops! Não foi possível resolver sua solicitação.\n\n${error.message}`)
+  }
 }
 
 function shouldInterceptMessage(message: Message): boolean {

@@ -8,13 +8,8 @@ export default async function pergunta(
   command: string = '!pergunta'
 ) {
   if (!message.body.startsWith(command)) return
-  await waiting(message.from, client)
+  await waiting(message, client)
   const prompt = message.body.replace(command, '').trim()
-  try {
-    const result = await question(prompt)
-    await message.reply(result)
-  } catch (error: any) {
-    console.error(error)
-    message.reply(`AI: Ops! Não foi possível resolver sua solicitação.\n\n${error.message}`)
-  }
+  const result = await question(prompt)
+  await message.reply(result)
 }

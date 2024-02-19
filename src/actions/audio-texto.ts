@@ -9,12 +9,7 @@ export default async function audioTexto(
 ) {
   if (!message.hasMedia || message.type !== 'audio') return
   const media = await message.downloadMedia()
-  await waiting(message.from, client)
-  try {
-    const text = await audioToText(media)
-    await message.reply(text)
-  } catch (error: any) {
-    console.error(error)
-    message.reply(`AI: Ops! Não foi possível resolver sua solicitação.\n\n${error.message}`)
-  }
+  await waiting(message, client)
+  const text = await audioToText(media)
+  await message.reply(text)
 }
